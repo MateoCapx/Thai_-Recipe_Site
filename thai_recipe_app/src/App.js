@@ -1,12 +1,19 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import React from "react";
+import "./App.css";
 import Home from "./pages/home";
+import { Route, Routes } from "react-router-dom";
+import { Box } from "@mui/material";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <div className="App">
+      {/* <Routes>
+      <Route path="/" elemnt={<Home />} />
+    </Routes> */}
+
+      <Home />
+    </div>
   );
 }
 

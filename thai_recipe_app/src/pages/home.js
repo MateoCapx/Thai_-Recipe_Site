@@ -1,11 +1,15 @@
 import React from "react";
 import { useState } from "react";
-import ReactDOM from "react-dom/client";
-import { Stack, Typography, Box } from "@mui/material";
-import topHeader from "../components/topHeader";
+import { Box } from "@mui/material";
+import TopHeader from "../components/topHeader";
 
-const Home = () => {
-  return <topHeader />;
+const home = () => {
+  return (
+    <div className="topHeader">
+      <TopHeader />
+      <h1> Home Page! </h1>
+    </div>
+  );
 };
 
-export default Home;
+export default home;

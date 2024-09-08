@@ -1,13 +1,7 @@
 import React from "react";
-import { Box } from "@mui/material";
-import { Stack, Typography } from "@mui/material";
 
 const topHeader = () => {
-  return (
-    <div>
-      <h1> Topheader</h1>
-    </div>
-  );
+  return <h2 className="topheader"> topHeader </h2>;
 };
 
 export default topHeader;

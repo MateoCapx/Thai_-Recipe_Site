@@ -6,3 +6,7 @@ body {
   background-color: #e96d20;
   margin: 0;
 }
+
+.SearchBar-Nav {
+  display: hidden;
+}

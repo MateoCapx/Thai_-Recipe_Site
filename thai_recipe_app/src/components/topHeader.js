@@ -4,9 +4,7 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
 
 const topHeader = () => {
   return (
@@ -34,12 +32,12 @@ const topHeader = () => {
             Never miss a new recipe
             <Button
               onClick={() => {
-                console.log("Button WOrks");
+                console.log("Subscribe Button");
               }}
               style={{
                 marginLeft: 20,
                 borderRadius: 20,
-                backgroundColor: "rgb(233,109,32) ",
+                backgroundColor: "rgb(233,109,32)",
                 color: "white",
                 borderColor: "white",
               }}
@@ -49,18 +47,19 @@ const topHeader = () => {
             </Button>
           </div>
         </Grid2>
-        <Grid2 item xs={12} sm={6} md={4} lg={3}>
-          <div style={{ backgroundColor: "lightcoral", padding: "10px" }}>
-            Item 2
-          </div>
-        </Grid2>
 
-        {/* ________________________________________________________ */}
+        {/* _____________________View Blog Btn, Video Btn, Search Bar___________________________________ */}
         <Grid2 item xs={12} sm={6} md={4} lg={3} sx={{ order: 1 }}>
-          <div style={{ padding: "10px" }}>
+          <div
+            style={{
+              padding: "5px",
+              display: "flex", // Use flexbox
+              alignItems: "center", // Align items vertically
+            }}
+          >
             <Button
               onClick={() => {
-                console.log("Button WOrks");
+                console.log("View Blogs Button");
               }}
               style={{
                 marginLeft: 20,
@@ -75,10 +74,11 @@ const topHeader = () => {
             </Button>
             <Button
               onClick={() => {
-                console.log("Button WOrks");
+                console.log("Video Button");
               }}
               style={{
                 marginLeft: 20,
+                marginRight: 20,
                 borderRadius: 20,
                 backgroundColor: "rgb(233,109,32) ",
                 color: "white",
@@ -90,13 +90,15 @@ const topHeader = () => {
             </Button>
             {/* ________________________________________________________ */}
 
+            {/* Search Bar component */}
+
             <Paper
               component="form"
               sx={{
                 p: "2px 4px",
                 display: "flex",
                 alignItems: "center",
-                width: 400,
+                width: 250,
               }}
             >
               <InputBase
@@ -104,10 +106,16 @@ const topHeader = () => {
                 placeholder="Search  "
                 inputProps={{ "aria-label": "search" }}
               />
-              <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+              <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+
+              {/* Search Icon Button */}
+              <IconButton
+                type="button"
+                sx={{ p: "10px", color: "rgb(233,109,32)" }}
+                aria-label="search"
+              >
                 <SearchIcon />
               </IconButton>
-              <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
             </Paper>
           </div>
         </Grid2>

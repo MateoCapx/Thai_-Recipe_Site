@@ -2,11 +2,34 @@ body {
   margin: 0;
 }
 
+/* Start Styles for top header */
 .topheader {
   background-color: #e96d20;
   margin: 0;
 }
 
-.SearchBar-Nav {
-  display: hidden;
+
+
+/* Styles to hide search bar */
+@media (max-width: 1025px) {
+  #searchBar {
+    display: none;
+  }
+}
+
+@media (max-width: 761px) {
+  #leftSectionOfTopNavBar {
+    margin-left: 200px;
+    text-align: center;
+  }
+
+  #videoBtn {
+    margin-right: 200px;
+  }
+
+  #viewBlogs {
+    display: none;
+  }
+
+
 }

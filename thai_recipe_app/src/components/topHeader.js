@@ -6,20 +6,10 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
+ 
+
 const topHeader = () => {
   return (
-    // (
-    //   <Grid2 justifyContent="center" container spacing={2} columns={12}>
-    //     <Grid2 item size={{ xs: 6, sm: 4, md: 6, lg: 12, xl: 6 }}>
-    //       Mateo
-    //     </Grid2>
-
-    //     <Grid2 item size={{ xs: 6, sm: 4, md: 6, lg: 12, xl: 6 }}>
-    //       Mcpherosn
-    //     </Grid2>
-    //   </Grid2>
-    // ),
-
     <div className="topheader">
       <Grid2
         container
@@ -27,9 +17,12 @@ const topHeader = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Grid2 item xs={12} sm={6} md={4} lg={3}>
-          <div style={{ padding: "10px", color: "White" }}>
-            Never miss a new recipe
+
+        {/* _____________________Subscribe Btn Section________________________________ */}
+
+        <Grid2 id="leftSectionOfTopNavBar" item xs={12} sm={6} md={4} lg={3}>
+          <div style={{ padding: "10px", color: "White",   display: "flex",  }}>
+            <p> Never miss a new recipe</p>
             <Button
               onClick={() => {
                 console.log("Subscribe Button");
@@ -57,7 +50,7 @@ const topHeader = () => {
               alignItems: "center", // Align items vertically
             }}
           >
-            <Button
+            <Button id="viewBlogs"
               onClick={() => {
                 console.log("View Blogs Button");
               }}
@@ -72,7 +65,7 @@ const topHeader = () => {
             >
               View Blogs
             </Button>
-            <Button
+            <Button id="videoBtn"
               onClick={() => {
                 console.log("Video Button");
               }}
@@ -94,6 +87,7 @@ const topHeader = () => {
 
             <Paper
               component="form"
+              id="searchBar"
               sx={{
                 p: "2px 4px",
                 display: "flex",
@@ -103,7 +97,7 @@ const topHeader = () => {
             >
               <InputBase
                 sx={{ ml: 1, flex: 1 }}
-                placeholder="Search  "
+                placeholder="Search Recipe..."
                 inputProps={{ "aria-label": "search" }}
               />
               <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />

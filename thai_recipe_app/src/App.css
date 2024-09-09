@@ -8,9 +8,11 @@ body {
   margin: 0;
 }
 
+#leftSectionOfTopNavBar p{
+font-size: 20px;
+}
 
-
-/* Styles to hide search bar */
+/* Styles to hide search bar when pages resizes */
 @media (max-width: 1025px) {
   #searchBar {
     display: none;
@@ -24,7 +26,7 @@ body {
   }
 
   #videoBtn {
-    margin-right: 200px;
+    display: none;
   }
 
   #viewBlogs {
@@ -32,4 +34,12 @@ body {
   }
 
 
+}
+/* End of styles for top Header bar */
+
+
+/* Styles start for main navigation */
+
+#navBarContanier{
+ margin-top: 30px;
 }

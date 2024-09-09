@@ -21,7 +21,7 @@ const topHeader = () => {
         {/* _____________________Subscribe Btn Section________________________________ */}
 
         <Grid2 id="leftSectionOfTopNavBar" item xs={12} sm={6} md={4} lg={3}>
-          <div style={{ padding: "10px", color: "White",   display: "flex",  }}>
+          <div style={{ padding: "5px", color: "White",   display: "flex", marginLeft:10, }}>
             <p> Never miss a new recipe</p>
             <Button
               onClick={() => {

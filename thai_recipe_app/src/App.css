@@ -40,6 +40,14 @@ font-size: 20px;
 
 /* Styles start for main navigation */
 
+#navLinks{
+  font-size: 20px;
+  display: flex;
+   align-items: "center";
+  padding: "5px";
+ 
+}
+
 #navBarContanier{
  margin-top: 30px;
 }

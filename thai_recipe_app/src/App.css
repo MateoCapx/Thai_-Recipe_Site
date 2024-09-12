@@ -8,8 +8,8 @@ body {
   margin: 0;
 }
 
-#leftSectionOfTopNavBar p{
-font-size: 20px;
+#leftSectionOfTopNavBar p {
+  font-size: 20px;
 }
 
 /* Styles to hide search bar when pages resizes */
@@ -32,52 +32,60 @@ font-size: 20px;
   #viewBlogs {
     display: none;
   }
-
-
 }
 /* End of styles for top Header bar */
-
 
 /* Styles start for main navigation */
 
 #navLinks a {
-   font-size: 20px;
-   color: black;
+  font-size: 20px;
+  color: black;
 }
 
-#navLinks a:hover{
+#navLinks a:hover {
   font-size: 25px;
   color: #e96d20;
 }
 
-#searchIconBtn:hover{
+#searchIconBtn:hover {
   cursor: pointer;
   color: #e96d20;
 }
 
-#navLinks{
+#navLinks {
   display: flex;
-   align-items: "center";
+  align-items: "center";
   padding: "5px";
- 
 }
 
-#navBarContanier{
- margin-top: 30px;
-  
+#navBarContanier {
+  margin-top: 30px;
 }
 
-
-#menuIcon{
-font-size: 35px;
-cursor: pointer;
-display: none;
+#sideBarBtn {
+  font-size: 35px;
+  cursor: pointer;
+  display: none;
 }
 
+@media (max-width: 950px) {
+  #sideBarBtn {
+    font-size: 35px;
+    cursor: pointer;
+    display: block;
+  }
+
+  #navLinks {
+    display: none;
+  }
+
+  #searchIconBtn {
+    display: block;
+  }
+}
 
 @media (max-width: 1123px) {
-  #navBarContanier{
+  #navBarContanier {
     margin-right: 35px;
-   }
-  
+  }
 }

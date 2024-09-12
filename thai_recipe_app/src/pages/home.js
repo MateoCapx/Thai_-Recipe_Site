@@ -8,7 +8,7 @@ const home = () => {
   return (
     <div className="topHeader">
       <TopHeader />
-      < NavBar />
+      <NavBar />
       {/* <h1> Home Page! </h1> */}
     </div>
   );

@@ -6,8 +6,6 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
- 
-
 const topHeader = () => {
   return (
     <div className="topheader">
@@ -17,11 +15,17 @@ const topHeader = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-
         {/* _____________________Subscribe Btn Section________________________________ */}
 
         <Grid2 id="leftSectionOfTopNavBar" item xs={12} sm={6} md={4} lg={3}>
-          <div style={{ padding: "5px", color: "White",   display: "flex", marginLeft:10, }}>
+          <div
+            style={{
+              padding: "5px",
+              color: "White",
+              display: "flex",
+              marginLeft: 10,
+            }}
+          >
             <p> Never miss a new recipe</p>
             <Button
               onClick={() => {
@@ -50,7 +54,8 @@ const topHeader = () => {
               alignItems: "center", // Align items vertically
             }}
           >
-            <Button id="viewBlogs"
+            <Button
+              id="viewBlogs"
               onClick={() => {
                 console.log("View Blogs Button");
               }}
@@ -65,7 +70,8 @@ const topHeader = () => {
             >
               View Blogs
             </Button>
-            <Button id="videoBtn"
+            <Button
+              id="videoBtn"
               onClick={() => {
                 console.log("Video Button");
               }}

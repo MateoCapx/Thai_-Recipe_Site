@@ -60,6 +60,7 @@ body {
 
 #navBarContanier {
   margin-top: 30px;
+ 
 }
 
 #sideBarBtn {
@@ -67,6 +68,37 @@ body {
   cursor: pointer;
   display: none;
 }
+
+
+ 
+
+
+/* Start Styles for logo  */
+@media (max-width: 950px) {
+  #navBarContanier {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+   
+  }
+
+  #logo-Section {
+    text-align: center; /* Center text inside the logo section */
+    width: 100%; /* Ensure it takes up full width to align centrally */
+    margin: 0 auto; /* Center the logo section itself */
+  }
+}
+
+@media (max-width: 1066px) {
+  #logo-Section{
+  
+  
+  }
+}
+
+/* End Styles for logo  */
+
 
 @media (max-width: 950px) {
   #sideBarBtn {
@@ -83,6 +115,24 @@ body {
     display: block;
   }
 }
+
+@media (max-width: 1066px) {
+  #sideBarBtn {
+    font-size: 35px;
+    cursor: pointer;
+    display: block;
+  }
+
+  #navLinks {
+    display: none;
+  }
+
+  #searchIconBtn {
+    display: block;
+  }
+}
+
+
 
 @media (max-width: 1123px) {
   #navBarContanier {

@@ -8,9 +8,9 @@ import { Box } from "@mui/material";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
       <Route path="/" elemnt={<Home />} />
-    </Routes> */}
+    </Routes>
 
       <Home />
     </div>

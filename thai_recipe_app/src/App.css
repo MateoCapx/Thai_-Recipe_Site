@@ -90,15 +90,14 @@ body {
   }
 }
 
-@media (max-width: 1066px) {
-  #logo-Section{
-  
-  
-  }
-}
+ 
 
 /* End Styles for logo  */
 
+#Nav-Bar-Section{
+background-color: white;
+color: black
+}
 
 @media (max-width: 950px) {
   #sideBarBtn {

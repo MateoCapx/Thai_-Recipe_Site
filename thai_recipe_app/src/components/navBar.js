@@ -1,7 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Button, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import UploadBlog from "../pages/uploadBlog";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Button,
+  Typography,
+  Container,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -20,14 +30,14 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const menuItems = (
     <>
-      <MenuItem a href='/'>Home</MenuItem>
-      <MenuItem  a href='about'>About</MenuItem>
+      <MenuItem>Home</MenuItem>
+      <MenuItem>About</MenuItem>
       <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
     </>
   );
@@ -64,14 +74,22 @@ const NavBar = () => {
           </>
         )}
       </Toolbar>
+      <Container sx={{ textAlign: "center" }}>
+        <Button
+          component={Link}
+          to="/UploadBlog"
+          variant="contained"
+          color="primary"
+        >
+          {" "}
+          Upload Blogs
+        </Button>
+      </Container>
     </AppBar>
   );
 };
 
-
-
 export default NavBar;
-
 
 // import * as React from "react";
 // import { Grid2, Button, Link, Container } from "@mui/material";

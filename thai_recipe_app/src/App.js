@@ -2,17 +2,19 @@ import "./App.css";
 import React from "react";
 import "./App.css";
 import Home from "./pages/home";
-import { Route, Routes } from "react-router-dom";
+import UploadBlog from "./pages/uploadBlog";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Box } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-      <Route path="/" elemnt={<Home />} />
-    </Routes>
-
-      <Home />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/UploadBlog" element={<UploadBlog />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

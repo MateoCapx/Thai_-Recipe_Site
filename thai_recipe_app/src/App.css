@@ -78,8 +78,11 @@ body {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
   font-size: large;
-  width: 50%;
+  width: 60%;
+  /* color: white; */
 }
+
+/* End styles for upload blog */
 
 /* Start Styles for logo  */
 @media (max-width: 950px) {

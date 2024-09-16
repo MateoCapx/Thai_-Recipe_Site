@@ -60,7 +60,6 @@ body {
 
 #navBarContanier {
   margin-top: 30px;
- 
 }
 
 #sideBarBtn {
@@ -69,9 +68,18 @@ body {
   display: none;
 }
 
+/* Styles End for Main navigation  */
 
- 
+/* Styles for upload blogs form */
 
+#BlogUpload-Form {
+  background-color: #e96d20;
+  margin-top: 30px;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  width: 50%;
+}
 
 /* Start Styles for logo  */
 @media (max-width: 950px) {
@@ -80,7 +88,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
-   
   }
 
   #logo-Section {
@@ -90,13 +97,11 @@ body {
   }
 }
 
- 
-
 /* End Styles for logo  */
 
-#Nav-Bar-Section{
-background-color: white;
-color: black
+#Nav-Bar-Section {
+  background-color: white;
+  color: black;
 }
 
 @media (max-width: 950px) {
@@ -130,8 +135,6 @@ color: black
     display: block;
   }
 }
-
-
 
 @media (max-width: 1123px) {
   #navBarContanier {

@@ -18,7 +18,7 @@ app.use(cors());
  
 
 //Routes
-app.use("/blogs", blogRoutes);
+app.use(blogRoutes);
 
 // Start Server
 app.listen(process.env.PORT, () =>

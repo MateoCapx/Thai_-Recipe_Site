@@ -1,10 +1,15 @@
 const express = require("express");
-
 const router = express.Router();
+const models = require('../models/blogModels')
+
+const{
+  getAllBlogs
+} = require('../controller/blogController')
 
 //Getting all the blogs
-router.get("/", (res, req) => {
-  res.json({ mssg: "Welcome" });
+router.get("/", (res,req)=> {
+    const blogs = models.find()
+    res.json(blogs)
 });
 
 // Getting a single blg

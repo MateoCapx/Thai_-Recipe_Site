@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const blogModel = require('../models/blogModels')
 
 // Get All the Blogs
 

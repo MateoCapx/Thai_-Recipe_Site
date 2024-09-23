@@ -4,7 +4,7 @@ const models = require("../models/blogModels");
 
 const {
   getAllBlogs,
-  getSingleBlog,
+  // getSingleBlog,
   createBlog,
   deleteBlog,
   updateBlog,
@@ -13,16 +13,16 @@ const {
 //Getting all the blogs
 router.get("/", getAllBlogs);
 
-// Getting a single blg
-router.get("/:id", getSingleBlog);
-
 // Post a blog to the database
-router.post("/", deleteBlog);
+router.post("/", createBlog);
 
 // DELETE a blog
-router.delete("/:id", createBlog);
+router.delete("/:id", deleteBlog);
 
 // UPDATE a blog
-router.put("/", updateBlog);
+router.put("/:id", updateBlog);
+
+// Getting a single blg
+// router.get("/:id", getSingleBlog);
 
 module.exports = router;

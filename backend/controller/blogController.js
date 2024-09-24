@@ -5,33 +5,31 @@ const blogs = require("../models/blogModels");
 const getAllBlogs = async (req, res) => {
   const blogss = await blogs.find({});
   console.log(blogss);
-   res.status(200).json(blogss);
+  res.status(200).json(blogss);
 };
-
-
 
 // Create a Blog
 const createBlog = async (req, res) => {
- 
-  if(!req.body.nameOfDish && !req.body.description && !req.body.fileUpload){
-    res.status(400)
-    throw new Error('Please fill out all fields')
+  if (!req.body.nameOfDish && !req.body.description && !req.body.fileUpload) {
+    res.status(400);
+    throw new Error("Please fill out all fields");
   }
-  const blog = await blogs.create({
-    nameOfDish: req.body.nameOfDish,
-    description: req.body.description,
-     fileUpload: req.body.fileUpload,
-  },
-  console.log('Blog Post Created')
-)
+  const blog = await blogs.create(
+    {
+      nameOfDish: req.body.nameOfDish,
+      description: req.body.description,
+      fileUpload: req.body.fileUpload,
+    },
+    console.log("Blog Post Created")
+  );
 
-  res.status(200).json(blog)
-
+  res.status(200).json(blog);
 };
+createBlog();
 
 // Delete a Blogs
 const deleteBlog = async (req, res) => {
-  res.status(200).json({message:"Deleted Blog"})
+  res.status(200).json({ message: "Deleted Blog" });
 
   // const blog = await blogs.findById(req.params.id)
 
@@ -47,10 +45,8 @@ const deleteBlog = async (req, res) => {
 
 // Update Blogs
 const updateBlog = async (req, res) => {
-  res.status(200).json({message:"Updated Blog"})
-
+  res.status(200).json({ message: "Updated Blog" });
 };
-
 
 // // Get single Blogs
 // const getSingleBlog = async (req, res) => {

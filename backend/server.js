@@ -11,14 +11,12 @@ const DB = require("./config/connection"); // <- Starts Connection to database
 const app = express();
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
 //Routes
 app.use(blogRoutes);
-
-
 
 // Start Server
 app.listen(process.env.PORT, () =>

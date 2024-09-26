@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const blogs = require("../models/blogModels");
-// const express = require("express");
+const express = require("express");
 
-// // Initlaize Express
-// const app = express();
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
+// Initlaize Express
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Get All the Blogs
 const getAllBlogs = async (req, res) => {
@@ -34,15 +34,27 @@ const getAllBlogs = async (req, res) => {
 // };
 
 const createBlog = async (req, res) => {
-  if (!req.body.nameOfDish && !req.body.description && !req.body.fileUpload)
-    res.status(400).json({ message: "Please fill out all fields" });
   try {
-    const blog = await BlogSchema.create(req.body);
-    res.status(200).json(blog);
+    if (!req.body.nameOfDish || !req.body.description || !req.body.fileUpload) {
+      return response.status(400).send({
+        message: "Send all required fields: title, author, publishYear",
+      });
+    }
+    const newBlog = {
+      nameOfDish: req.body.nameOfDish,
+      description: req.body.description,
+      fileUpload: req.body.fileUpload,
+    };
+
+    const blog = await blogs.create(newBlog);
+
+    return res.status(201).send(blog);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
   }
 };
+createBlog();
 
 // Delete a Blogs
 const deleteBlog = async (req, res) => {
@@ -78,27 +90,6 @@ const updateBlog = async (req, res) => {
   }
 };
 
-// if (blog) {
-//   res.status(200).json({ message: "Blogs Here" });
-//   if (blog) {
-//     await blog.findByIdAndUpdate({_id:});
-//   }
-//   console.log("Blog Deleted");
-// } else {
-//   res.status(200).json({ message: "Updated Blog" });
-// }
-
-// const updatedGoal = await blog.findByIdAndUpdate(req.params.id, req.body, {
-//   new: true,
-// });
-
-// res.status(200).json(updatedGoal);
-// };
-
-// // Get single Blogs
-// const getSingleBlog = async (req, res) => {
-// //  res.send('Hello')
-// };
 module.exports = {
   getAllBlogs,
   createBlog,

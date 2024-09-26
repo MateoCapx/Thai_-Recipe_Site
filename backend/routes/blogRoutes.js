@@ -14,7 +14,7 @@ const {
 router.get("/", getAllBlogs);
 
 // Post a blog to the database
-router.post("/", createBlog);
+router.post("/updated", createBlog);
 
 // DELETE a blog
 router.delete("/:id", deleteBlog);

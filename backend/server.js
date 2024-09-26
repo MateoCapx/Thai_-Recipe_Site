@@ -6,7 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const blogRoutes = require("./routes/blogRoutes");
 const DB = require("./config/connection"); // <- Starts Connection to database
-const controller = require('../backend/controller/blogController')
+const controller = require("../backend/controller/blogController");
 
 // Initlaize Express
 const app = express();
@@ -14,16 +14,14 @@ const app = express();
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors())
- 
+
 // app.use(express.json()); It parses incoming JSON requests and puts the parsed data in req.body.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
- 
 
 //Routes
-app.use(blogRoutes);
- 
+// app.use(blogRoutes);
+app.use("/", blogRoutes);
 
 // Start Server
 app.listen(process.env.PORT, () =>

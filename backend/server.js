@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const blogRoutes = require("./routes/blogRoutes");
 const DB = require("./config/connection"); // <- Starts Connection to database
 const controller = require("../backend/controller/blogController");
+const {createBlog} = require('../backend/controller/blogController')
 
 // Initlaize Express
 const app = express();
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 //Routes
 // app.use(blogRoutes);
 app.use("/", blogRoutes);
+app.post('/blogs', createBlog);
 
 // Start Server
 app.listen(process.env.PORT, () =>

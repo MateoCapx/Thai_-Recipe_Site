@@ -15,6 +15,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 // app.use(express.json()); It parses incoming JSON requests and puts the parsed data in req.body.
 app.use(express.json());

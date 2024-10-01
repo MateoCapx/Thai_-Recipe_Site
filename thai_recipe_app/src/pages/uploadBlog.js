@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Input, TextField } from "@mui/material";
 
@@ -13,40 +14,31 @@ function UploadBlog() {
     const formData = new FormData();
     formData.append("nameOfDish", nameState);
     formData.append("description", textArea);
-    // if (fileUpload) {
-    //   formData.append("fileUpload", fileUpload);
-    // }
+    if (fileUpload) {
+      formData.append("fileUpload", fileUpload);
+    }
 
-    // const data = JSON.stringify(formData);
-    console.log(nameState);
+    try {
+      const response = await fetch("http://localhost:3000/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-    // try {
-    //   const response = await fetch("http://localhost:4000/blogs", {
-    //     method: "POST",
-    //     body: JSON.stringify(formData),
-    //     completed: false,
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   });
-    //   //   .then(res => res.json()
-    //   // .then(()=>))
+      if (!response.ok) {
+        throw new Error("Problem submitting form");
+      }
 
-    //   if (!response.ok) {
-    //     throw new Error("Problem submitting form");
-    //   }
-
-    //   const json = await response.json();
-    //   console.log(json); // You can handle success response here
-    //   // Reset form fields
-    //   setNameState("");
-    //   setTextArea("");
-    //   // setFileUpload(null);
-    //   alert("File Submitted");
-    // } catch (error) {
-    //   console.error("Error:", error);
-    //   alert("There was a problem submitting the form.");
-    // }
+      const json = await response.json();
+      console.log(json); // You can handle success response here
+      // Reset form fields
+      setNameState("");
+      setTextArea("");
+      setFileUpload(null);
+      alert("File Submitted");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There was a problem submitting the form.");
+    }
   };
 
   return (
@@ -82,7 +74,7 @@ function UploadBlog() {
             />
             <br />
             <br />
-            {/* 
+
             <span id="upload-photos-span">Upload Photo & Video </span>
             <input
               type="file"
@@ -90,7 +82,7 @@ function UploadBlog() {
               onChange={(e) => setFileUpload(e.target.files[0])} // Get the first file
               required
             />
-            <hr /> */}
+            {/* <hr />  */}
 
             <Button
               sx={{ marginTop: "20px" }}
@@ -108,6 +100,3 @@ function UploadBlog() {
 }
 
 export default UploadBlog;
-
-//If you need to upload files, you cannot use application/json because JSON doesn't support binary data.
-//For file uploads, you should stick with FormData and multipart/form-data.

@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Input, TextField } from "@mui/material";
 
 function UploadBlog() {
   const [nameState, setNameState] = useState("");
   const [textArea, setTextArea] = useState("");
-  // const [fileUpload, setFileUpload] = useState(null);
+  const [fileUpload, setFileUpload] = useState(null);
 
   const uploadBlogFiles = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("nameOfDish", nameState);
-    formData.append("description", textArea);
-    if (fileUpload) {
-      formData.append("fileUpload", fileUpload);
-    }
+    const formData = {
+      nameOfDish: nameState,
+      description: textArea,
+      fileUpload: fileUpload,
+    };
 
     try {
-      const response = await fetch("http://localhost:3000/upload", {
+      const response = await fetch("http://localhost:4000/blogs", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json", // Set the correct header
+        },
+        body: JSON.stringify(formData), // Convert the data to JSON string
       });
 
       if (!response.ok) {
@@ -29,11 +30,10 @@ function UploadBlog() {
       }
 
       const json = await response.json();
-      console.log(json); // You can handle success response here
+      console.log(json);
       // Reset form fields
       setNameState("");
       setTextArea("");
-      setFileUpload(null);
       alert("File Submitted");
     } catch (error) {
       console.error("Error:", error);
@@ -66,7 +66,7 @@ function UploadBlog() {
             <TextField
               sx={{ backgroundColor: "white" }}
               label="Description"
-              name="Description"
+              name="description"
               multiline
               rows={4}
               value={textArea}

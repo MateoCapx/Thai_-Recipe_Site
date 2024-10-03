@@ -14,23 +14,31 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const renderBlogs = async (e) => {
-    //Fetching Data from backend
-    try {
-      const response = await axios.get("http://localhost:4000/");
-      console.log(response);
-      // setBlogs(response.data);
+  // const renderBlogs = async (e) => {
+  //   //Fetching Data from backend
+  //   try {
+  //     const response = await axios.get("http://localhost:4000/");
+  //     .then(res =>{setBlogs})
+  //     console.log(response);
+  //     // setBlogs(response.data);
 
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  };
+  //     setLoading(false);
+  //   } catch (err) {
+  //     setError(err.message);
+  //     setLoading(false);
+  //   }
+  // };
 
+
+  
   //Fetch data on mount
   useEffect(() => {
-    renderBlogs();
+    const response = axios.get("http://localhost:4000/")
+    .then(res =>{setBlogs(res.data)})
+    .catch(err => console.log(err))
+
+    console.log(response)
+    // renderBlogs();
   }, []);
 
   // Handle loading and error states

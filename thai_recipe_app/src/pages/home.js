@@ -14,37 +14,27 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // const renderBlogs = async (e) => {
-  //   //Fetching Data from backend
-  //   try {
-  //     const response = await axios.get("http://localhost:4000/");
-  //     .then(res =>{setBlogs})
-  //     console.log(response);
-  //     // setBlogs(response.data);
+  const renderBlogs = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/");
 
-  //     setLoading(false);
-  //   } catch (err) {
-  //     setError(err.message);
-  //     setLoading(false);
-  //   }
-  // };
+      console.log("Response status:", response.status); // Debugging log
+      console.log("Response data:", response.data); // Debugging log
 
+      const data = response.data;
+      setBlogs(data);
+      setLoading(false);
+    } catch (err) {
+      console.log("Error fetching data:", err); // Log the error for debugging
+      setError(err.message);
+      setLoading(false);
+    }
+  };
 
-  
-  //Fetch data on mount
+  // Fetch data on mount
   useEffect(() => {
-    const response = axios.get("http://localhost:4000/")
-    .then(res =>{setBlogs(res.data)})
-    .catch(err => console.log(err))
-
-    console.log(response)
-    // renderBlogs();
+    renderBlogs();
   }, []);
-
-  // Handle loading and error states
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
   return (
     <div className="topHeader">
       <TopHeader />

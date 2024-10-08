@@ -23,7 +23,7 @@ const getAllBlogs = async (req, res) => {
   if (blogss) {
     console.log("Number of Blogs =", blogss.length);
   }
-  res.end()
+  res.status(200).json(blogss);
 };
 
 //Create a Blog

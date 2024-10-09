@@ -35,6 +35,7 @@ const Home = () => {
   useEffect(() => {
     renderBlogs();
   }, []);
+
   return (
     <div className="topHeader">
       <TopHeader />
@@ -55,17 +56,13 @@ const Home = () => {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        Lizard
-                        <h2 key={blog.nameOfDish}></h2>
-                        <li> </li>
+                        <h2 key={blog.nameOfDish}>{blog.nameOfDish}</h2>
                       </Typography>
                       <Typography
                         variant="body2"
                         sx={{ color: "text.secondary" }}
                       >
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        <h2 key={blog.description}>{blog.description}</h2>
                       </Typography>
                     </CardContent>
                     <CardActions>

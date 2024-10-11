@@ -33,6 +33,7 @@ body {
     display: none;
   }
 }
+
 /* End of styles for top Header bar */
 
 /* Styles start for main navigation */
@@ -90,17 +91,31 @@ body {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center;
+    /* Center content horizontally */
   }
 
   #logo-Section {
-    text-align: center; /* Center text inside the logo section */
-    width: 100%; /* Ensure it takes up full width to align centrally */
-    margin: 0 auto; /* Center the logo section itself */
+    text-align: center;
+    /* Center text inside the logo section */
+    width: 100%;
+    /* Ensure it takes up full width to align centrally */
+    margin: 0 auto;
+    /* Center the logo section itself */
   }
 }
 
 /* End Styles for logo  */
+
+/* Style for cards on home page */
+#cardStyle {
+  display: 'flex';
+  height: 100%;
+  width: 80%;
+  text-align: center;
+  flex-direction: column;
+}
+
 
 #Nav-Bar-Section {
   background-color: white;

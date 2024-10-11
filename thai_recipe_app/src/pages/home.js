@@ -48,11 +48,11 @@ const Home = () => {
       <NavBar />
       <br />
       <br />
-      <Grid2 container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} id="homePageGrid">
+      <Grid2 container spacing={{ xs: 2, md: 3 }} columns={{ xs: 6, sm: 6, md: 6 }} id="homePageGrid">
         {blogs && blogs.length > 0 ? (
           blogs.map((blog) => (
-            <Grid2 item size={{ xs: 2, sm: 4, md: 4 }} key={blog.id}>
-              <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <Grid2 item size={{ xs: 6, sm: 4, md: 4 }} key={blog.id}>
+              <Card id="cardStyle" sx={{  }}>
                 <CardMedia
                   sx={{ height: 140 }}
                   image={blog.image || "/static/images/cards/contemplative-reptile.jpg"}
@@ -79,6 +79,9 @@ const Home = () => {
           </Grid2>
         )}
       </Grid2>
+      {/* <Grid2 item xs={4}>
+            <Typography>No blogs available.</Typography>
+          </Grid2> */}
     </div>
   );
 };

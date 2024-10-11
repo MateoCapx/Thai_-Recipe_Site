@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useState, useEffect } from "react";
 import { Box, Container, Grid2, Card, Typography } from "@mui/material";
 import TopHeader from "../components/topHeader";
@@ -8,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import Paper from '@mui/material/Paper';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -16,7 +16,7 @@ const Home = () => {
 
   const renderBlogs = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/");
+      const response = await axios.get("http://localhost:4000");
 
       console.log("Response status:", response.status); // Debugging log
       console.log("Response data:", response.data); // Debugging log
@@ -35,58 +35,55 @@ const Home = () => {
   useEffect(() => {
     renderBlogs();
   }, []);
+
+  //Fetch data on mount
+
+  // Handle loading and error states
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="topHeader">
       <TopHeader />
       <NavBar />
       <br />
       <br />
-      <Grid2 container spacing={2} id="homePageGrid">
-        <div>
-          {blogs && blogs.length > 0 ? (
-            blogs.map((blog) => (
-              <Grid2 size={{ xs: 6, md: 8 }}>
-                <div>
-                  <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia
-                      sx={{ height: 140 }}
-                      image="/static/images/cards/contemplative-reptile.jpg"
-                      title="green iguana"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        Lizard
-                        <h2 key={blog.nameOfDish}></h2>
-                        <li> </li>
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{ color: "text.secondary" }}
-                      >
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small">Share</Button>
-                      <Button size="small">Learn More</Button>
-                    </CardActions>
-                  </Card>
-                </div>
-              </Grid2>
-            ))
-          ) : (
-            <p>No blogs available.</p> // Handle the case when blogs are not available
-          )}
-        </div>
-
-        <Grid2 size={{ xs: 6, md: 4 }}>
-          <div>xs: 6, md: 8</div>
-        </Grid2>
+      <Grid2 container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} id="homePageGrid">
+        {blogs && blogs.length > 0 ? (
+          blogs.map((blog) => (
+            <Grid2 item size={{ xs: 2, sm: 4, md: 4 }} key={blog.id}>
+              <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <CardMedia
+                  sx={{ height: 140 }}
+                  image={blog.image || "/static/images/cards/contemplative-reptile.jpg"}
+                  title={blog.nameOfDish}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {blog.nameOfDish}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    {blog.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">Share</Button>
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            </Grid2>
+          ))
+        ) : (
+          <Grid2 item xs={12}>
+            <Typography>No blogs available.</Typography>
+          </Grid2>
+        )}
       </Grid2>
     </div>
   );
 };
 
+
 export default Home;
+ 
+ 

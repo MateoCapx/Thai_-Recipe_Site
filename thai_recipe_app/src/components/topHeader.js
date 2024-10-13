@@ -1,10 +1,11 @@
 import React from "react";
-import { Grid2, Button, Typography } from "@mui/material";
+import { Grid2, Button, Typography, Link } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import ViewBlogs from "../pages/viewBlogs";
 
 const topHeader = () => {
   return (
@@ -56,9 +57,8 @@ const topHeader = () => {
           >
             <Button
               id="viewBlogs"
-              onClick={() => {
-                console.log("View Blogs Button");
-              }}
+              component={Link}
+              to="/viewBlogs"
               style={{
                 marginLeft: 20,
                 borderRadius: 20,

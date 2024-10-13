@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import axios from "axios";
-import Paper from '@mui/material/Paper';
+import Paper from "@mui/material/Paper";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -48,14 +48,22 @@ const Home = () => {
       <NavBar />
       <br />
       <br />
-      <Grid2 container spacing={{ xs: 2, md: 3 }} columns={{ xs: 6, sm: 6, md: 6 }} id="homePageGrid">
+      <Grid2
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 6, sm: 6, md: 6 }}
+        id="homePageGrid"
+      >
         {blogs && blogs.length > 0 ? (
           blogs.map((blog) => (
             <Grid2 item size={{ xs: 6, sm: 4, md: 4 }} key={blog.id}>
-              <Card id="cardStyle" sx={{  }}>
+              <Card id="cardStyle" sx={{}}>
                 <CardMedia
                   sx={{ height: 140 }}
-                  image={blog.image || "/static/images/cards/contemplative-reptile.jpg"}
+                  image={
+                    blog.image ||
+                    "/static/images/cards/contemplative-reptile.jpg"
+                  }
                   title={blog.nameOfDish}
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
@@ -86,7 +94,4 @@ const Home = () => {
   );
 };
 
-
 export default Home;
- 
- 

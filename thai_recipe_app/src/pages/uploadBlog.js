@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import TopHeader from "../components/topHeader";
+import NavBar from "../components/navBar";
 import { Button, Container, Input, TextField } from "@mui/material";
 
 function UploadBlog() {
@@ -43,6 +45,10 @@ function UploadBlog() {
 
   return (
     <div>
+      <TopHeader />
+      <NavBar />
+      <br />
+      <br />
       <Container sx={{ textAlign: "center" }}>
         <h1>Blogs Upload Page</h1>
         <Button component={Link} to="/" variant="contained" color="primary">

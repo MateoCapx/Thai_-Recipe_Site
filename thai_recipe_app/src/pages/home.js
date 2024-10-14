@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
-import { Box, Container, Grid2, Card, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid2,
+  Card,
+  Typography,
+  Stack,
+  Pagination,
+  Paper,
+} from "@mui/material";
 import TopHeader from "../components/topHeader";
 import NavBar from "../components/navBar";
 import CardActions from "@mui/material/CardActions";
@@ -7,7 +16,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import axios from "axios";
-import Paper from "@mui/material/Paper";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -49,6 +57,11 @@ const Home = () => {
 
       <br />
       <br />
+
+      <Stack spacing={2}>
+        <Pagination count={10} />
+      </Stack>
+
       <Grid2
         container
         spacing={{ xs: 2, md: 3 }}

@@ -44,7 +44,12 @@ const NavBar = () => {
   return (
     <AppBar id="Nav-Bar-Section" position="sticky">
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+        <Typography
+          component={Link}
+          to="/"
+          variant="h6"
+          sx={{ flexGrow: 1, textDecoration: "none", color: "black" }}
+        >
           Logo
         </Typography>
         {isMobile ? (

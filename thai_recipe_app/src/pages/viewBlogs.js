@@ -1,17 +1,15 @@
 import React from "react";
 import TopHeader from "../components/topHeader";
 import NavBar from "../components/navBar";
+import Home from "./home";
 
-function viewBlogs() {
+function ViewBlogs() {
   return (
     <div>
-      <TopHeader />
-      <NavBar />
-      <br />
-      <br />
-      <h1> View Blogs</h1>
+      <h1> View Blogs Page </h1>
+      <Home />
     </div>
   );
 }
 
-export default viewBlogs;
+export default ViewBlogs;

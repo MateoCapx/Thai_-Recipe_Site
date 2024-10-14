@@ -7,8 +7,6 @@ function aboutUs() {
     <div>
       <TopHeader />
       <NavBar />
-      <br />
-      <br />
       <h1> About Us </h1>
     </div>
   );

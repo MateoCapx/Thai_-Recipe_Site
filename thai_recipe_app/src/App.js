@@ -7,7 +7,6 @@ import AboutUs from "./pages/aboutUs";
 import Contact from "./pages/contact";
 import ViewBlogs from "./pages/viewBlogs";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { Box } from "@mui/material";
 
 function App() {
   return (

@@ -46,6 +46,7 @@ const Home = () => {
     <div className="topHeader">
       <TopHeader />
       <NavBar />
+
       <br />
       <br />
       <Grid2

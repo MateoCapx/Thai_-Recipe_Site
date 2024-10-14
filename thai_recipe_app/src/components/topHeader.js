@@ -1,13 +1,37 @@
 import React from "react";
-import { Grid2, Button, Typography, Link } from "@mui/material";
+import { Grid2, Button, Typography, Modal, Box, Input } from "@mui/material";
+import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import ViewBlogs from "../pages/viewBlogs";
+import { useState } from "react";
 
-const topHeader = () => {
+// Style for the modal
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  paddingLeft: 25,
+};
+
+const TopHeader = () => {
+  const [open, setOpen] = useState(false);
+  const [textArea, setTextArea] = useState("");
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const submitEmailAddress = () => {
+    console.log("Eamil Subscribed - Data:", textArea);
+  };
+
   return (
     <div className="topheader">
       <Grid2
@@ -28,21 +52,54 @@ const topHeader = () => {
             }}
           >
             <p> Never miss a new recipe</p>
-            <Button
-              onClick={() => {
-                console.log("Subscribe Button");
-              }}
-              style={{
-                marginLeft: 20,
-                borderRadius: 20,
-                backgroundColor: "rgb(233,109,32)",
-                color: "white",
-                borderColor: "white",
-              }}
-              variant="outlined"
-            >
-              Subscribe
-            </Button>
+            <div>
+              <Button
+                style={{
+                  marginLeft: 20,
+                  marginTop: 15,
+                  borderRadius: 20,
+
+                  color: "white",
+                  borderColor: "white",
+                }}
+                variant="outlined"
+                onClick={handleOpen}
+              >
+                Subscribe
+              </Button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                  >
+                    Enter Email Address
+                  </Typography>
+                  <br></br>
+                  <Input
+                    type="email"
+                    id="standard-basic"
+                    label="Enter Email"
+                    variant="standard"
+                    value={textArea}
+                    onChange={(e) => setTextArea(e.target.value)}
+                  />
+
+                  <Button
+                    id="submitEmailAddressBtn"
+                    onClick={submitEmailAddress}
+                  >
+                    Subscribe
+                  </Button>
+                </Box>
+              </Modal>
+            </div>
           </div>
         </Grid2>
 
@@ -56,9 +113,8 @@ const topHeader = () => {
             }}
           >
             <Button
-              id="viewBlogs"
               component={Link}
-              to="/viewBlogs"
+              to="/ViewBlogs"
               style={{
                 marginLeft: 20,
                 borderRadius: 20,
@@ -70,6 +126,7 @@ const topHeader = () => {
             >
               View Blogs
             </Button>
+
             <Button
               id="videoBtn"
               onClick={() => {
@@ -124,7 +181,7 @@ const topHeader = () => {
   );
 };
 
-export default topHeader;
+export default TopHeader;
 
 // justifyContent="center": Centers grid items horizontally.
 // alignItems="center": Centers grid items vertically.

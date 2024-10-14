@@ -85,6 +85,11 @@ body {
 
 /* End styles for upload blog */
 
+#Modal-Box-style {
+  color: white;
+  background-color: "rgb(233,109,32) ";
+}
+
 /* Start Styles for logo  */
 @media (max-width: 950px) {
   #navBarContanier {
@@ -109,13 +114,12 @@ body {
 
 /* Style for cards on home page */
 #cardStyle {
-  display: 'flex';
+  display: "flex";
   height: 100%;
   width: 80%;
   text-align: center;
   flex-direction: column;
 }
-
 
 #Nav-Bar-Section {
   background-color: white;

@@ -1,39 +1,36 @@
 import { useState, useEffect } from "react";
 import {
   Box,
-  Container,
   Grid2,
   Card,
   Typography,
-  Stack,
-  Pagination,
-  Paper,
+  Menu,
+  MenuItem,
+  Button,
+  CardActions,
+  CardContent,
+  CardMedia,
 } from "@mui/material";
 import TopHeader from "../components/topHeader";
 import NavBar from "../components/navBar";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import axios from "axios";
+import ShareIcon from "@mui/icons-material/Share";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedBlogUrl, setSelectedBlogUrl] = useState("");
 
   const renderBlogs = async () => {
     try {
       const response = await axios.get("http://localhost:4000");
-
-      console.log("Response status:", response.status); // Debugging log
-      console.log("Response data:", response.data); // Debugging log
-
       const data = response.data;
       setBlogs(data);
       setLoading(false);
     } catch (err) {
-      console.log("Error fetching data:", err); // Log the error for debugging
+      console.log("Error fetching data:", err);
       setError(err.message);
       setLoading(false);
     }
@@ -44,24 +41,44 @@ const Home = () => {
     renderBlogs();
   }, []);
 
-  //Fetch data on mount
-
   // Handle loading and error states
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
+  // Function to handle share button click and open the menu
+  const handleShareClick = (event, url) => {
+    setAnchorEl(event.currentTarget);
+    setSelectedBlogUrl(url);
+  };
+
+  // Function to handle closing the menu
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  // Function to copy the link to clipboard
+  const copyLinkToClipboard = (url) => {
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Link copied to clipboard");
+      handleClose();
+    });
+  };
+
+  // Function to share on Facebook
+  const shareOnFacebook = (url) => {
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+      url
+    )}`;
+    window.open(facebookShareUrl, "_blank");
+    handleClose();
+  };
 
   return (
     <div className="topHeader">
       <TopHeader />
       <NavBar />
-
       <br />
       <br />
-
-      <Stack spacing={2}>
-        <Pagination count={10} />
-      </Stack>
-
       <Grid2
         container
         spacing={{ xs: 2, md: 3 }}
@@ -70,8 +87,8 @@ const Home = () => {
       >
         {blogs && blogs.length > 0 ? (
           blogs.map((blog) => (
-            <Grid2 item size={{ xs: 6, sm: 4, md: 4 }} key={blog.id}>
-              <Card id="cardStyle" sx={{}}>
+            <Grid2 item size={{ xs: 6, sm: 4, md: 4 }} key={blog._id}>
+              <Card id="cardStyle">
                 <CardMedia
                   sx={{ height: 140 }}
                   image={
@@ -89,7 +106,13 @@ const Home = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Share</Button>
+                  <Button
+                    onClick={(event) => handleShareClick(event, blog.url)}
+                    size="small"
+                    startIcon={<ShareIcon />}
+                  >
+                    Share
+                  </Button>
                   <Button size="small">Learn More</Button>
                 </CardActions>
               </Card>
@@ -101,9 +124,21 @@ const Home = () => {
           </Grid2>
         )}
       </Grid2>
-      {/* <Grid2 item xs={4}>
-            <Typography>No blogs available.</Typography>
-          </Grid2> */}
+
+      {/* Share options menu */}
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        MenuListProps={{ "aria-labelledby": "basic-button" }}
+      >
+        <MenuItem onClick={() => shareOnFacebook(selectedBlogUrl)}>
+          Share on Facebook
+        </MenuItem>
+        <MenuItem onClick={() => copyLinkToClipboard(selectedBlogUrl)}>
+          Copy Link
+        </MenuItem>
+      </Menu>
     </div>
   );
 };

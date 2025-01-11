@@ -90,6 +90,10 @@ body {
   background-color: "rgb(233,109,32) ";
 }
 
+#rightColoumHomePage {
+  background-color: #e96d20;
+}
+
 /* Start Styles for logo  */
 @media (max-width: 950px) {
   #navBarContanier {
@@ -116,7 +120,7 @@ body {
 #cardStyle {
   display: "flex";
   height: 100%;
-  width: 80%;
+  width: 60%;
   text-align: center;
   flex-direction: column;
 }
@@ -124,6 +128,29 @@ body {
 #Nav-Bar-Section {
   background-color: white;
   color: black;
+}
+
+/* Styles for the right side  Coloum */
+#rightColoumHomePage {
+  padding: 2;
+  position: absolute;
+  margin-left: 100px;
+  top: 39.5%;
+  left: 60%;
+}
+
+@media (max-width: 760px) {
+  #rightColoumHomePage {
+    display: none;
+  }
+}
+
+/* style to make the the left coloum 100% of the view port 
+when viewport resizes */
+@media (max-width: 760px) {
+  #cardStyle {
+    width: 100%;
+  }
 }
 
 @media (max-width: 950px) {

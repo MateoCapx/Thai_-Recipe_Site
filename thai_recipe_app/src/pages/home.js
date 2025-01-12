@@ -132,7 +132,17 @@ const Home = () => {
 
       <div id="rightColoumHomePage">
         {/* Right Column (30% Width) */}
-        <Box sx={{}}>Right Column (Smaller)</Box>
+        <Box sx={{}}>
+          <img
+            src="./images/IMG_5275.jpg"
+            alt=""
+            id="authorImage"
+            sx={{ maxWidth: 50 }}
+          />
+          {/* THIS IS
+          HOW YOU IMPORT AN INTO THE WBEPAGE */}
+          <h1> Image</h1>
+        </Box>
       </div>
 
       {/* Dropdown Menu for Sharing Options */}

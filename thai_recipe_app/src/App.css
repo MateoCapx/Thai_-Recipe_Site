@@ -90,10 +90,6 @@ body {
   background-color: "rgb(233,109,32) ";
 }
 
-#rightColoumHomePage {
-  background-color: #e96d20;
-}
-
 /* Start Styles for logo  */
 @media (max-width: 950px) {
   #navBarContanier {
@@ -137,6 +133,11 @@ body {
   margin-left: 100px;
   top: 39.5%;
   left: 60%;
+}
+
+#authorImage {
+  width: 50%;
+  border-radius: 60%;
 }
 
 @media (max-width: 760px) {

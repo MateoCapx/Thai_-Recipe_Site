@@ -116,7 +116,7 @@ body {
 #cardStyle {
   display: "flex";
   height: 100%;
-  width: 60%;
+  /* width: 60%; */
   text-align: center;
   flex-direction: column;
 }
@@ -126,13 +126,25 @@ body {
   color: black;
 }
 
-/* Styles for the right side  Coloum */
+/* Styles for the right side Coloum */
 #rightColoumHomePage {
   padding: 2;
   position: absolute;
   margin-left: 100px;
   top: 39.5%;
   left: 60%;
+  text-align: center;
+}
+
+/* Styles for the left side Coloum */
+#meal-of-week-section,
+button {
+  text-align: center;
+}
+
+#main-content-section {
+  width: 60%;
+  margin-left: 10px;
 }
 
 #authorImage {
@@ -140,6 +152,7 @@ body {
   border-radius: 60%;
 }
 
+/* beginning of media queries */
 @media (max-width: 760px) {
   #rightColoumHomePage {
     display: none;

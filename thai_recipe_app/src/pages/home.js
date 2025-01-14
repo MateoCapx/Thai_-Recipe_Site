@@ -77,71 +77,248 @@ const Home = () => {
       <br />
 
       {/* Left Column (70% Width) */}
-      <Grid2
-        item
-        xs={6} // Full width on extra-small screens
-        sm={9} // 9/12 of the width on small screens (~75%)
-        md={8} // 8/12 of the width on medium and larger screens (~70%)
-      >
-        <Grid2 container spacing={2} direction="column">
-          {blogs && blogs.length > 0 ? (
-            blogs.map((blog) => (
-              <Grid2 item xs={12} key={blog._id} id="homePageGrid">
-                <Card id="cardStyle">
-                  <CardMedia
-                    sx={{ height: 140 }}
-                    image={
-                      blog.image ||
-                      "/static/images/cards/contemplative-reptile.jpg"
-                    }
-                    title={blog.nameOfDish}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {blog.nameOfDish}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary" }}
-                    >
-                      {blog.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      size="small"
-                      onClick={(event) => handleClick(event, blog)}
-                    >
-                      Share
-                    </Button>
+      <Grid2 container spacing={2} direction="column" id="main-content-section">
+        {/* Main Section / Meal of the week */}
+        <div id="meal-of-week-section">
+          <h1> Green Curry (Gaeng Keow Wan) </h1>
+          <p>
+            Enjoy the tender, juicy, and lightly smoky flavors of tteokgalbi—a
+            beloved Korean dish that brings a festive touch to any meal! What is
+            Tteokgalbi Tteokgalbi (떡갈비), also known as Korean beef patties,
+            is a savory, tender, and lightly sweet dish that embodies the
+            essence of Korean cuisine. Once reserved for royalty, it has become
+            …
+          </p>
+          <button> Get The Recipe </button>
+        </div>
 
-                    <Button onClick={handleLearnMoreClick} size="small">
-                      Learn More
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid2>
-            ))
-          ) : (
-            <Grid2 item xs={12}>
-              <Typography>No blogs available.</Typography>
+        <img
+          src="./images/greenCurry.png"
+          alt=""
+          style={{ width: "100%", textAlign: "center" }}
+        />
+
+        <h1> Most View Recipes </h1>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 1, sm: 2, md: 4 }}
+          sx={{ textAlign: "center" }}
+        >
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe </a>
+          </item>
+
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe </a>
+          </item>
+
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe</a>
+          </item>
+        </Stack>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 1, sm: 2, md: 4 }}
+          sx={{ textAlign: "center" }}
+        >
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe </a>
+          </item>
+
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe </a>
+          </item>
+
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe</a>
+          </item>
+        </Stack>
+
+        <h1>Most Popular Recipes</h1>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 1, sm: 2, md: 4 }}
+          sx={{ textAlign: "center" }}
+        >
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe </a>
+          </item>
+
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe </a>
+          </item>
+
+          <item>
+            <img
+              src="./images/greenCurry.png"
+              alt=""
+              style={{ width: "100%", textAlign: "center" }}
+            />
+            <h3> Food</h3>
+            <p>
+              This roasted seaweed is the perfect harmony of irresistible crunch
+              and savory goodness. It offers an effortless way to elevate your
+              meals or satisfy your snack cravings. These roasted seaweed …
+            </p>
+            <a href="">Get Recipe</a>
+          </item>
+        </Stack>
+
+        <a href="" style={{ textAlign: "center", paddingTop: 20 }}>
+          View More Gret Recipes
+        </a>
+        {blogs && blogs.length > 0 ? (
+          blogs.map((blog) => (
+            <Grid2 item xs={12} key={blog._id} id="homePageGrid">
+              <Card id="cardStyle">
+                <CardMedia
+                  sx={{ height: 140 }}
+                  image={
+                    blog.image ||
+                    "/static/images/cards/contemplative-reptile.jpg"
+                  }
+                  title={blog.nameOfDish}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {blog.nameOfDish}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    {blog.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    onClick={(event) => handleClick(event, blog)}
+                  >
+                    Share
+                  </Button>
+
+                  <Button onClick={handleLearnMoreClick} size="small">
+                    Learn More
+                  </Button>
+                </CardActions>
+              </Card>
             </Grid2>
-          )}
-        </Grid2>
+          ))
+        ) : (
+          <Grid2 item xs={12}>
+            <Typography>No blogs available.</Typography>
+          </Grid2>
+        )}
       </Grid2>
 
       <div id="rightColoumHomePage">
         {/* Right Column (30% Width) */}
         <Box sx={{}}>
-          <img
-            src="./images/IMG_5275.jpg"
-            alt=""
-            id="authorImage"
-            sx={{ maxWidth: 50 }}
-          />
+          <img src="./images/IMG_5275.jpg" alt="" id="authorImage" />
           {/* THIS IS
           HOW YOU IMPORT AN INTO THE WBEPAGE */}
-          <h1> Image</h1>
+          <h2> Authors Name</h2>
+          <p>
+            My Korean Kitchen is a food blog that talks all about my love and
+            passion for Korean food and Korean fusion food. It includes step by
+            step pictorial instructions, cultural discussions, and product
+            reviews.
+          </p>
+          <button> Read More</button>
+          <br></br>
+          <h3> Get My Cookbook</h3>
+          <hr></hr>
+          <img
+            src="./images/cookbookPlaceholder.png"
+            alt=""
+            style={{ width: "80%", textAlign: "center", cursor: "pointer" }}
+          />
         </Box>
       </div>
 

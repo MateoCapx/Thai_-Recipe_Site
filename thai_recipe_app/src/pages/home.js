@@ -10,6 +10,7 @@ import {
   MenuItem,
   Grid2,
 } from "@mui/material";
+import Footer from "../components/footer";
 import TopHeader from "../components/topHeader";
 import NavBar from "../components/navBar";
 import CardActions from "@mui/material/CardActions";
@@ -255,6 +256,7 @@ const Home = () => {
         <a href="" style={{ textAlign: "center", paddingTop: 20 }}>
           View More Gret Recipes
         </a>
+        {/*         
         {blogs && blogs.length > 0 ? (
           blogs.map((blog) => (
             <Grid2 item xs={12} key={blog._id} id="homePageGrid">
@@ -294,7 +296,7 @@ const Home = () => {
           <Grid2 item xs={12}>
             <Typography>No blogs available.</Typography>
           </Grid2>
-        )}
+        )} */}
       </Grid2>
 
       <div id="rightColoumHomePage">
@@ -323,7 +325,7 @@ const Home = () => {
       </div>
 
       {/* Dropdown Menu for Sharing Options */}
-      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+      {/* <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
         <MenuItem
           onClick={() =>
             copyLinkToClipboard(
@@ -342,7 +344,8 @@ const Home = () => {
             <FacebookIcon size={32} round />
           </FacebookShareButton>
         </MenuItem>
-      </Menu>
+      </Menu> */}
+      <Footer />
     </div>
   );
 };

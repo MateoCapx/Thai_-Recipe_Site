@@ -152,7 +152,29 @@ button {
   border-radius: 60%;
 }
 
+/* Styles for footer section */
+#footer-Section {
+  margin-top: 20px;
+  color: white;
+  background-color: rgb(91, 30, 30);
+}
+
+#footer-Section ul {
+  list-style: none;
+}
+
+#footer-Section li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 /* beginning of media queries */
+@media (max-width: 760px) {
+  #main-content-section {
+    width: 97%;
+  }
+}
+
 @media (max-width: 760px) {
   #rightColoumHomePage {
     display: none;

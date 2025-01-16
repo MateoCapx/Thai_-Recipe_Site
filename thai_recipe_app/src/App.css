@@ -136,15 +136,43 @@ body {
   text-align: center;
 }
 
+#rightColoumHomePage button {
+  color: #c31031;
+}
+
 /* Styles for the left side Coloum */
 #meal-of-week-section,
 button {
   text-align: center;
 }
 
+#main-content-section button {
+  background-color: #e96d20;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
 #main-content-section {
   width: 60%;
   margin-left: 10px;
+}
+
+#main-content-section a {
+  color: #c31031;
+  text-decoration: none;
+}
+
+#main-content-section a:hover {
+  color: navy;
+}
+
+#main-content-section h1 {
+  color: #c31031;
+}
+
+#main-content-section h3 {
+  color: #e96d20;
 }
 
 #authorImage {

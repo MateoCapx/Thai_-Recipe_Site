@@ -90,7 +90,7 @@ const Home = () => {
             essence of Korean cuisine. Once reserved for royalty, it has become
             …
           </p>
-          <button> Get The Recipe </button>
+          <Button> Get The Recipe </Button>
         </div>
 
         <img
@@ -312,7 +312,7 @@ const Home = () => {
             step pictorial instructions, cultural discussions, and product
             reviews.
           </p>
-          <button> Read More</button>
+          <Button> Read More</Button>
           <br></br>
           <h3> Get My Cookbook</h3>
           <hr></hr>

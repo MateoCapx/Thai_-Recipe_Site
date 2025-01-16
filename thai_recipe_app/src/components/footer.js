@@ -8,11 +8,12 @@ const footer = () => {
   return (
     <div>
       <Stack
-        direction={{ xs: "column", sm: "row" }}
+        direction={{ sm: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2, md: 4 }}
         id="footer-Section"
+        sx={{ justifyContent: "center" }}
       >
-        <item>
+        <item id="social-links ">
           <h1> Connect </h1>
           <FacebookIcon />
           <InstagramIcon />

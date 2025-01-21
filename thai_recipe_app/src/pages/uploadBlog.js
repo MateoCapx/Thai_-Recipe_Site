@@ -27,6 +27,8 @@ function UploadBlog() {
         body: JSON.stringify(formData), // Convert the data to JSON string
       });
 
+      console.log(response);
+
       if (!response.ok) {
         throw new Error("Problem submitting form");
       }
@@ -81,7 +83,7 @@ function UploadBlog() {
             <br />
             <br />
 
-            <span id="upload-photos-span">Upload Photo & Video </span>
+            <span id="upload-photos-span">Upload Photos & Video </span>
             <input
               type="file"
               name="file"

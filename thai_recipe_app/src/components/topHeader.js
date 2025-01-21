@@ -113,6 +113,7 @@ const TopHeader = () => {
             }}
           >
             <Button
+              id="viewBlogsBtn"
               component={Link}
               to="/ViewBlogs"
               style={{

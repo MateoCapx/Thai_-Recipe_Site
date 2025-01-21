@@ -20,6 +20,12 @@ body {
 }
 
 @media (max-width: 761px) {
+  #viewBlogsBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 761px) {
   #leftSectionOfTopNavBar {
     margin-left: 200px;
     text-align: center;
@@ -197,6 +203,13 @@ button {
 }
 
 /* beginning of media queries */
+
+@media (max-width: 599px) {
+  #footer-Section {
+    text-align: center;
+  }
+}
+
 @media (max-width: 760px) {
   #main-content-section {
     width: 97%;
